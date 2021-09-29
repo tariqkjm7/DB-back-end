@@ -60,6 +60,9 @@ server.get('/',homehandler);
 server.get('/books',bookshandler);
 server.post('/addBook',addBooks)
 server.delete('/deleteBooks',deleteBooks)
+server.delete('/deleteBooks',deleteBooks)
+server.put('/update',updateBooks)
+
 
 function bookshandler(req,res){
     let email = req.query.email
@@ -80,7 +83,7 @@ function homehandler(req,res){
 }
 async function addBooks(req,res){
     let {  email ,title, description,status } = req.body;
-    // console.log(req.body);
+    console.log(req.body);
     await BookModel.create({
        email: email,
        title: title,
@@ -109,7 +112,24 @@ function deleteBooks(req, res) {
     })
 }
 
+function updateBooks(req,res){
 
+    console.log('back enddddddddd',req.body);
+let{title,description,status,id,email} = req.body
+
+    BookModel.findByIdAndUpdate(id,  {title,description,status} , (error,finalData)=>{
+        if(error){
+            console.log('error in getting data');
+        }else{
+            console.log('finalData',finalData);
+            BookModel.find({email:email}, function(error,bookData){
+                if(error){console.log('error in getting data ' , error);}
+                else{res.send(bookData)}
+            })
+        }
+
+    })
+}
 
 
 

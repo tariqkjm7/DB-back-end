@@ -90,7 +90,7 @@ async function addBooks(req,res){
     await BookModel.find({email:email}, function(error,bookData){
         if(error){console.log('error in getting data ' , error);
     }else{
-            // console.log(email);
+            console.log(bookData);
             res.send(bookData) 
         
         }

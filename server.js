@@ -10,9 +10,9 @@ const PORT = process.env.PORT
 const BookModel = require('./moduls/BookDB')
 
 const mongoose = require('mongoose')
+const MONGO_SERVER_LINK = process.env.MONGO_SERVER_LINK
 
-
-mongoose.connect('mongodb://localhost:27017/Books')
+mongoose.connect(`${MONGO_SERVER_LINK}`)
 
 
 function seedBook(){ 
@@ -45,10 +45,10 @@ function seedBook(){
         
     })
     
-    // filght.save()
-    // theArrival.save()
-    // tribleSix.save()
-    // anything.save()
+    filght.save()
+    theArrival.save()
+    tribleSix.save()
+    anything.save()
 }
 
 // seedBook();

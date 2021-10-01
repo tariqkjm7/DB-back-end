@@ -45,10 +45,10 @@ function seedBook(){
         
     })
     
-    filght.save()
-    theArrival.save()
-    tribleSix.save()
-    anything.save()
+    // filght.save()
+    // theArrival.save()
+    // tribleSix.save()
+    // anything.save()
 }
 
 // seedBook();

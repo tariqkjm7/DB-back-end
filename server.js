@@ -79,7 +79,7 @@ function bookshandler(req,res){
 }
 
 function homehandler(req,res){
-    res.send('all good')
+    res.send('all gooddddddddd')
 }
 async function addBooks(req,res){
     let {  email ,title, description,status } = req.body;

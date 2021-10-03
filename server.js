@@ -87,8 +87,8 @@ async function addBooks(req,res){
     await BookModel.create({
        email: email,
        title: title,
-       description:  description,
-       status:  status
+       description:description,
+       status:status
     })
     await BookModel.find({email:email}, function(error,bookData){
         if(error){console.log('error in getting data ' , error);
